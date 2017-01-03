@@ -144,7 +144,7 @@ char** sort_list(char** names, int* count) {
 }
 
 void display_list(char** names, int* count) {
-  if (names == NULL) {
+  if (*names == NULL) {
     printf("Need names to display\n");
   } else {
     printf("CURRENT NAMES:\n");
@@ -156,7 +156,7 @@ void display_list(char** names, int* count) {
 }
 
 void display_sorted(char** names, char** giftees, int* count) {
-  if (giftees == NULL) {
+  if ((*giftees == NULL) || (*count < 3)) {
     printf("Can't display empty list\n");
   } else {
     int num = *count, i;
@@ -169,8 +169,8 @@ void display_sorted(char** names, char** giftees, int* count) {
 }
 
 char* hash(char* name) {
-  // inspired by Caesar Cipher
-  // TODO add something in the spaces?
+  // based on Caesar Cipher
+  // TODO add something for spaces?
   char* temp = strdup(name);
   int cipher_num = 3, start, i;
   int len = strlen(temp);
