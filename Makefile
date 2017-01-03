@@ -1,4 +1,12 @@
-all: sort.c
-	gcc -o sort -Wall sort.c
+NAME := WEsort
+SRCS := $(wildcard *.c)
+OBJS := ${SRCS:.c=.o}
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(LINK.cc) $(OBJS) -o $(NAME)
+
 clean:
-	$(RM) sort
+	@- $(RM) $(NAME)
+	@- $(RM) $(OBJS)
+
